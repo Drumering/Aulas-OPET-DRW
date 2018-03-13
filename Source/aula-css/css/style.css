@@ -26,3 +26,14 @@ table th, td {
 .iframe {
     margin-top: 20px;
 }
+li {
+    float: left;
+    margin: 20px;
+}
+.exercicios {
+    list-style: url('../imagens/mouse.png');
+}
+.exercicios a {
+    text-decoration: none;
+    color: black;
+}
