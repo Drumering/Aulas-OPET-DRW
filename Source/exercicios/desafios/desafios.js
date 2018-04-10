@@ -8,9 +8,10 @@ function reverseString(str) {
 }
 
 function isPalindrome(str) {
-    var res = reverseString(str);
+    var res = reverseString(str) + ":";
+
     for (let i = 0; i < str.length; i++) {
-        res += ":" + str[i]
+        res += str[i];
     }
     return res;
 }
