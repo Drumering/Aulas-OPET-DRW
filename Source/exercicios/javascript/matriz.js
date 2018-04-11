@@ -37,5 +37,16 @@ function somaDiagonalPrincipal() {
 }
 
 function somaDiagonalSecundaria() {
-    // implementar esse método
+    var total = 0;
+    for (let i = matriz.length-1; i >=0; i--) {
+        const linha = matriz[i];
+        for (let j = linha.length-1; j >= 0; j--) {
+            const coluna = linha[j];
+            if (i + j == matriz.length-1) {
+                total += coluna;
+                break;
+            }
+        }
+    }
+    console.log("A soma da diagonal secundária é: " + total);
 }
