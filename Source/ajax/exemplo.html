@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <button id="btnPeople">Busca Personagens</button>
+    <script>
+
+        var httpRequest;
+        if (window.XMLHttpRequest) {
+            httpRequest = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            // IE6-
+            httpRequest =
+                new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        document.getElementById('btnPeople')
+            .addEventListener("click", function () {
+                httpRequest.onreadystatechange = function () {
+                    console.log(httpRequest.readyState);
+                    if (httpRequest.readyState ===
+                        XMLHttpRequest.DONE) {
+                            var json = JSON
+                            .parse(httpRequest.responseText);
+                            console.log(json);
+                    }
+                };
+                httpRequest.open('GET', "https://swapi.co/api/people/");
+                httpRequest.send();
+            });
+    </script>
+</body>
+
+</html>
