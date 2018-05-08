@@ -69,15 +69,19 @@
                 $tr.append($tdMass);
                 $tr.append($tdFilms);
 
-                p.films.forEach(f => callPeople(f, function (data) {
-                    var text = data.title;
-                    if ($tdFilms.text().length > 0)
-                        text = ", " + data.title;
-                    $tdFilms.append(text);
-                }));
+                setFilmes (p, $tdFilms);
 
                 $tbodyPeople.append($tr);
             }
+        }
+
+        function setFilmes (p, $element) {
+            p.films.forEach(f => callPeople(f, function (data) {
+                    var text = data.title;
+                    if ($element.text().length > 0)
+                        text = ", " + data.title;
+                    $element.append(text);
+                }));
         }
 
         function addActions($td, p) {
@@ -126,6 +130,7 @@
             $div.append($filmsLabel);
             $div.append($films);
             setHomeWorld(p, $homeWorld);
+
             setFilms(p, $films);
 
             return $div;
