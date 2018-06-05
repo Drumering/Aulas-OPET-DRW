@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
     // will run if the delete button was clicked
-    $(document).on('click', '.delete-product-button', function () {
-        // product id will be here
-        // get the product id
-        var product_id = $(this).attr('data-id');
+    $(document).on('click', '.delete-category-button', function () {
+        // category id will be here
+        // get the category id
+        var category_id = $(this).attr('data-id');
 
         // bootbox for good looking 'confirm pop up'
         bootbox.confirm({
@@ -25,13 +25,13 @@ $(document).ready(function () {
                 if (isConfirmed) {
                     // send delete request to api / remote server
                     $.ajax({
-                        url: "api/product/delete.php",
+                        url: "api/category/delete.php",
                         type: "POST",
                         dataType: 'json',
-                        data: JSON.stringify({ id: product_id }),
+                        data: JSON.stringify({ id: category_id }),
                         success: function (result) {
-                            // re-load list of products
-                            showProducts("api/product/read_paging.php");
+                            // re-load list of categorys
+                            showcategorys("api/category/read_paging.php");
                         },
                         error: function (xhr, resp, text) {
                             console.log(xhr, resp, text);
